@@ -4,12 +4,11 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "outDir": "./dist",
-    "rootDir": "./src",
     "paths": {
       "@clippr/types": ["../packages/types/src/index.ts"],
       "@clippr/config": ["../packages/config/src/index.ts"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../packages/types/src/**/*", "../packages/config/src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
