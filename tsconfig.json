@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "paths": {
+      "@clippr/types": ["./packages/types/src/index.ts"],
+      "@clippr/config": ["./packages/config/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "**/node_modules", "**/.next", "**/dist"]
+}

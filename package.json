@@ -1,0 +1,23 @@
+{
+  "name": "clippr",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "workers",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "workers": "tsx workers/src/index.ts",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0",
+    "tsx": "^4.7.0"
+  }
+}
