@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@clippr/database": ["../../../packages/database/src/index.ts"],
+      "@clippr/core": ["../../../packages/core/src/index.ts"]
+    }
+  },
+  "include": ["src"]
+}

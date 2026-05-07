@@ -1,0 +1,43 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brandBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1A56B2"/>
+      <stop offset="100%" stop-color="#0A2A63"/>
+    </linearGradient>
+    <linearGradient id="ringBlue" x1="40" y1="40" x2="280" y2="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1D5CC0"/>
+      <stop offset="100%" stop-color="#0B2D69"/>
+    </linearGradient>
+    <mask id="apertureCut">
+      <rect width="100%" height="100%" fill="white"/>
+      <circle cx="160" cy="160" r="74" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- icon -->
+  <g>
+    <circle cx="160" cy="160" r="126" fill="url(#ringBlue)" mask="url(#apertureCut)"/>
+
+    <!-- shutter blades -->
+    <path d="M160 160L38 122A126 126 0 0 1 67 69Z" fill="#0E3478"/>
+    <path d="M160 160L95 49A126 126 0 0 1 168 34Z" fill="#123F8D"/>
+    <path d="M160 160L225 49A126 126 0 0 1 278 97Z" fill="#0F3A84"/>
+    <path d="M160 160L282 122A126 126 0 0 1 254 252Z" fill="#0C2F71"/>
+    <path d="M160 160L225 271A126 126 0 0 1 152 286Z" fill="#144B9E"/>
+    <path d="M160 160L95 271A126 126 0 0 1 42 223Z" fill="#124186"/>
+
+    <!-- centered play glyph -->
+    <path d="M130 112C130 104 138.5 99 145.5 103L218 148C224.7 152.2 224.7 161.8 218 166L145.5 211C138.5 215 130 210 130 202V112Z" fill="#F5F8FF"/>
+  </g>
+
+  <!-- wordmark -->
+  <text
+    x="330"
+    y="205"
+    fill="url(#brandBlue)"
+    font-family="Sora, Manrope, Segoe UI, Arial, sans-serif"
+    font-size="176"
+    font-weight="700"
+    letter-spacing="0"
+  >Clippr</text>
+</svg>

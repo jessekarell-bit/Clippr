@@ -1,0 +1,85 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String          @id @default(uuid())
+  email            String          @unique
+  youtubeChannelId String?         @unique
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  streams          Stream[]
+  clips            Clip[]
+  socialAccounts   SocialAccount[]
+}
+
+model Stream {
+  id              String       @id @default(uuid())
+  userId          String
+  youtubeStreamId String       @unique
+  status          StreamStatus @default(ACTIVE)
+  startedAt       DateTime     @default(now())
+  endedAt         DateTime?
+  user            User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  clips           Clip[]
+
+  @@index([userId])
+}
+
+model Clip {
+  id              String     @id @default(uuid())
+  userId          String
+  streamId        String
+  title           String?
+  s3Url           String
+  aiScore         Float
+  durationSeconds Int
+  status          ClipStatus @default(PENDING_REVIEW)
+  publishDate     DateTime?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  user            User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  stream          Stream     @relation(fields: [streamId], references: [id], onDelete: Cascade)
+
+  @@index([streamId])
+  @@index([userId, status])
+  @@index([aiScore])
+}
+
+model SocialAccount {
+  id           String       @id @default(uuid())
+  userId       String
+  platform     PlatformEnum
+  accessToken  String
+  refreshToken String?
+  expiresAt    DateTime?
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, platform])
+}
+
+enum StreamStatus {
+  ACTIVE
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum ClipStatus {
+  PENDING_REVIEW
+  APPROVED
+  REJECTED
+  PUBLISHED
+  PUBLISH_FAILED
+}
+
+enum PlatformEnum {
+  YOUTUBE
+  TIKTOK
+  INSTAGRAM
+}
